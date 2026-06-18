@@ -38,6 +38,7 @@ const Table = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [totalTasks, setTotalTasks] = useState(0);
     const [totalCompletedTasks, setTotalCompletedTasks] = useState(0);
+    const [taskLoading, setTaskLoading] = useState(false);
 
     const fetchTables = async () => {
         try {
@@ -82,6 +83,7 @@ const Table = () => {
 
     const fetchTask = async () => {
         try {
+            setTaskLoading(true);
             // console.log(tableId);
             // if (!tableId) {
             //     const tableTitle = createTableTitle(new Date());
@@ -123,6 +125,8 @@ const Table = () => {
             setTotalCompletedTasks(data.totalCompletedTasks);
         } catch (error) {
             console.log("Some error occurred while fetching tasks: ", error);
+        }finally{
+            setTaskLoading(false);
         }
     }
 
@@ -383,6 +387,7 @@ const Table = () => {
                                 setPage={setPage}
                                 totalPages={totalPages}
                                 page={page}
+                                taskLoading={taskLoading}
                             />
                         </div>
                     </div>
