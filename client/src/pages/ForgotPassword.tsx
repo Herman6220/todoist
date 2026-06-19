@@ -39,8 +39,8 @@ export const ForgotPassword = () => {
     })
 
     return (
-        <div className="w-full h-screen bg-black flex items-center justify-center">
-            <div className="absolute w-full h-full flex items-center justify-center overflow-hidden">
+        <div className="w-full h-screen bg-black flex items-center justify-center p-4">
+            <div className="absolute w-full h-full flex items-center justify-center overflow-hidden lg:opacity-100 opacity-0">
                 <style>
                     {`
                         @keyframes shadowLtToBr{

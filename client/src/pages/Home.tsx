@@ -6,7 +6,7 @@ const Home = () => {
 
     return (
         <div className="w-full h-screen bg-black flex-1 relative">
-            <div className="flex w-full h-30 absolute top-0 justify-center items-center p-8">
+            <div className="flex w-full h-30 absolute top-0 justify-center items-center lg:p-8 p-2">
                 <div className="[box-shadow:inset_0px_0px_10px_#aaa] w-full h-full max-w-7xl flex items-center justify-end rounded-3xl overflow-hidden bg-neutral-500/20">
                     {user === null ? (
                         <Link
@@ -28,8 +28,8 @@ const Home = () => {
                 </div>
             </div>
             <div className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden">
-                <div className="flex-col flex items-center justify-center pb-14">
-                    <h1 className="text-9xl text-transparent bg-clip-text bg-gradient-to-b from-slate-100 via-slate-400 to-slate-500 tracking-tighter">TODOIST</h1>
+                <div className="flex-col flex items-center justify-center md:pb-14 pb-44">
+                    <h1 className="lg:text-9xl text-5xl text-transparent bg-clip-text bg-gradient-to-b from-slate-100 via-slate-400 to-slate-500 tracking-tighter">TODOIST</h1>
                     <p className="text-slate-200">Complete your goals on time.</p>
                 </div>
                 <div className="w-full h-32 bg-blue-300 absolute bottom-20 rounded-[100%] blur-3xl opacity-30"></div>
@@ -52,14 +52,14 @@ const Home = () => {
                                 transform: translate(20px, 20px) rotate(-3deg);
                             }
                             100%{
-                                transform: translate(0, 0) rotate(3deg);
+                                transform: translate(0, 0) rotate(10deg);
                             }
                         }
                     `}
                 </style>
                 <div
                     style={{ animation: "slideLeftUpAndRotate 2s ease-in-out" }}
-                    className="w-80 absolute bg-neutral-500/20 rounded-3xl bottom-16 right-12 flex flex-col gap-4 [box-shadow:inset_0px_0px_8px_#aaa] backdrop-blur-md rotate-3"
+                    className="lg:w-80 w-72 absolute bg-neutral-500/20 rounded-3xl lg:bottom-16 lg:right-12 bottom-20 right-6 flex flex-col gap-4 [box-shadow:inset_0px_0px_8px_#aaa] backdrop-blur-md rotate-3"
                 >
                     <div className="flex text-white items-end gap-2 justify-between px-8 pt-8">
                         <div className="flex items-end gap-2">
@@ -106,7 +106,7 @@ const Home = () => {
 
                 <div
                     style={{ animation: "slideLeftUp 1s ease-in-out" }}
-                    className="w-80 absolute bg-neutral-500/20 rounded-3xl bottom-20 right-20 flex flex-col gap-4 [box-shadow:inset_0px_0px_8px_#aaa] backdrop-blur-md overflow-hidden"
+                    className="lg:w-80 w-72 absolute bg-neutral-500/20 rounded-3xl lg:bottom-20 lg:right-20 bottom-20 flex flex-col gap-4 [box-shadow:inset_0px_0px_8px_#aaa] backdrop-blur-md overflow-hidden"
                 >
                     <div className="flex text-white items-end gap-2 justify-between pt-8 px-8">
                         <div className="flex items-end gap-2">
