@@ -307,7 +307,7 @@ const TableDef = () => {
                 <Sidebar tables={tables} />
                 <div className="flex flex-col gap-2 justify-center items-center w-full h-full">
                     <Navbar />
-                    <div className="h-full px-10 p-4 text-white flex flex-col gap-10 w-full flex-1 min-h-0">
+                    <div className="h-full md:px-10 p-4 text-white flex flex-col gap-10 w-full flex-1 min-h-0">
                         <div className="flex justify-between">
                             <div className="flex items-end gap-8">
                                 <h1 className="text-4xl">Today</h1>
