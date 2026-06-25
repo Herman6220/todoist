@@ -1,6 +1,7 @@
 import { Link } from "react-router"
 import { PanelLeftIcon } from "lucide-react";
 import { Logo } from "./Logo";
+import { createContext, useContext, useState } from "react";
 
 interface TableInterface {
     owner: string;
@@ -8,19 +9,55 @@ interface TableInterface {
     _id: string;
 }
 
-const Sidebar = ({ tables }: { tables: TableInterface[] }) => {
+interface SidebarContextInterface{
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const SidebarContext = createContext<SidebarContextInterface | null>(null);
+
+export const SidebarProvider = ({children}: {children: React.ReactNode}) => {
+    const [open, setOpen] = useState(true);
+
     return (
-        <div className="w-full max-w-xs h-full p-4 hidden lg:block">
-            <div className="rounded-3xl bg-neutral-800 w-full h-full text-white overflow-hidden p-2">
-                <div className="p-2 px-4 flex items-end justify-between">
-                    <div className="size-7">
+        <SidebarContext.Provider value={{open, setOpen}}>
+            {children}
+        </SidebarContext.Provider>
+    )
+}
+
+export const useSidebar = () => {
+    const context = useContext(SidebarContext);
+    if(context === null){
+        throw new Error("No sidebar.");
+    }
+    return context;
+}
+
+export const Sidebar = ({ tables }: { tables: TableInterface[] }) => {
+
+    const {open, setOpen} = useSidebar();
+
+    return (
+        <div className={`w-full h-full flex lg:justify-center ${open ? "md:max-w-xs" : "md:max-w-24 hidden md:flex"} md:p-4 transition-all duration-300 fixed z-50 md:relative backdrop-blur-sm md:backdrop-blur-0`}>
+            <div className={`md:rounded-3xl bg-neutral-800 w-full h-full text-white overflow-hidden p-2 ${open ? "max-w-xs" : "max-w-24"}`}>
+                <div className={`p-2 flex items-end ${open ? "md:justify-between justify-end" : "justify-center"}`}>
+                    <div className={`${open ? "md:block hidden" : "hidden"} size-7 mb-1`}>
                         <Link to="/">
                             <Logo />
                         </Link>
                     </div>
-                    <PanelLeftIcon className="size-5" strokeWidth="1" />
+                    {/* <button
+                        onClick={() => setOpen(prev => !prev)}
+                        className="pt-2"
+                    >
+                        <PanelLeftIcon className="size-5" strokeWidth="1" />
+                    </button> */}
+                    <div className="pt-2">
+                        <SidebarTrigger setOpen={setOpen}/>
+                    </div>
                 </div>
-                <div className="flex flex-col px-4 gap-2 w-full">
+                <div className={`flex-col px-4 gap-2 w-full ${open ? "flex" : "hidden"}`}>
                     <div className="flex p-2 w-full border-b mb-2">
                         <p>History</p>
                     </div>
@@ -35,4 +72,14 @@ const Sidebar = ({ tables }: { tables: TableInterface[] }) => {
     )
 }
 
-export default Sidebar
+export const SidebarTrigger = ({setOpen}: {setOpen: React.Dispatch<React.SetStateAction<boolean>>}) => {
+    return(
+        <>
+            <button
+                onClick={() => setOpen(prev => !prev)}
+            >
+                <PanelLeftIcon className="size-5" strokeWidth="1" />
+            </button>
+        </>
+    )
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { createTableTitle } from "../utils/TableTitle";
 import { useUserContext } from "../context/AuthContext";
-import Sidebar from "../components/Sidebar";
+import {Sidebar} from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import TaskList from "../components/TaskList";
 import { PAGE_LIMIT } from "../constants";

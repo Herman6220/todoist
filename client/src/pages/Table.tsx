@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router";
 import { useUserContext } from "../context/AuthContext";
-import Sidebar from "../components/Sidebar";
+import {Sidebar} from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import TaskList from "../components/TaskList";
 import { PAGE_LIMIT } from "../constants";
@@ -320,21 +320,21 @@ const Table = () => {
                 <Sidebar tables={tables} />
                 <div className="flex flex-col gap-2 justify-center items-center w-full h-full flex-1 min-h-0">
                     <Navbar />
-                    <div className="h-full px-10 p-4 text-white flex flex-col gap-10 w-full flex-1 min-h-0">
+                    <div className="h-full md:px-10 p-4 text-white flex flex-col gap-10 w-full flex-1 min-h-0">
                         <div className="flex justify-between">
-                            <div className="flex items-end">
+                            <div className="flex flex-col md:flex-row md:items-end">
                                 {currTable && (currTable.createdAt.slice(0, 10) === new Date().toISOString().slice(0, 10)) ? (
                                     <>
-                                        <h1 className={`text-4xl mr-8 ${currTable && currTable.createdAt.slice(0, 10) === new Date().toISOString().slice(0, 10) ? "" : "hidden"}`}>
+                                        <h1 className={`md:text-4xl text-2xl md:mr-8 ${currTable && currTable.createdAt.slice(0, 10) === new Date().toISOString().slice(0, 10) ? "" : "hidden"}`}>
                                             Today
                                         </h1>
                                         <p>{currTable && currTable.createdAt.slice(0, 10)}</p>
                                     </>
                                 ) : (
-                                    <h1 className="text-4xl">{currTable && currTable.createdAt.slice(0, 10)}</h1>
+                                    <h1 className="md:text-4xl text-2xl">{currTable && currTable.createdAt.slice(0, 10)}</h1>
                                 )}
                             </div>
-                            <div className="flex flex-col gap-1 items-end justify-end w-full max-w-40">
+                            <div className="flex flex-col mb-2 gap-1 items-end justify-end w-full max-w-40">
                                 <p>{totalCompletedTasks}/{totalTasks}</p>
                                 <div className="w-full h-2 bg-neutral-800 rounded-full relative">
                                     <div

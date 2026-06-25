@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router";
 import { useUserContext } from "../context/AuthContext";
+import { SidebarTrigger, useSidebar } from "./Sidebar";
 
 const Navbar = () => {
 
     const {setUser} = useUserContext();
+    const {setOpen} = useSidebar();
     const navigate = useNavigate();
 
     const handleSignout = async() => {
@@ -26,7 +28,10 @@ const Navbar = () => {
     }
 
   return (
-    <div className="bg-black w-full p-4 flex justify-end items-center text-white">
+    <div className="bg-black w-full p-4 flex md:justify-end justify-between items-center text-white">
+        <div className="md:hidden">
+            <SidebarTrigger setOpen={setOpen}/>
+        </div>
         <button 
             onClick={handleSignout}
             className="bg-red-500/80 p-2 px-4 transition-all duration-300 rounded-lg [box-shadow:inset_0px_0px_4px_#003] hover:[box-shadow:inset_0px_-2px_10px_#003]"

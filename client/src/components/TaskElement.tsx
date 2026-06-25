@@ -47,10 +47,10 @@ const TaskElement = ({
     }
 
     return (
-        <div key={task._id} className={`${task.isCompleted ? "bg-green-500 [box-shadow:inset_0px_0px_4px_#030]" : "bg-neutral-800"} p-2 px-4 rounded-lg flex gap-4 items-center justify-center `}>
-            <p className="w-full max-w-20 truncate text-neutral-200">#{task._id}</p>
-            <p className="w-full">{task.title}</p>
-            <p className="p-0.5 px-4 rounded-lg bg-neutral-500/50">{task.isCompleted ? "Completed" : "Pending"}</p>
+        <div key={task._id} className={`${task.isCompleted ? "bg-green-500 [box-shadow:inset_0px_0px_4px_#030]" : "bg-neutral-800"} p-2 md:px-4 rounded-lg flex md:gap-4 items-center justify-center`}>
+            <p className="w-full max-w-20 truncate text-neutral-200 md:block hidden">#{task._id}</p>
+            <p className="w-full text-xs md:text-base truncate">{task.title}</p>
+            <p className="p-0.5 px-4 md:text-base text-xs hidden md:block rounded-lg bg-neutral-500/50">{task.isCompleted ? "Completed" : "Pending"}</p>
             <button
                 onClick={() => handleTaskInUpdation(task)}
                 className="hover:bg-neutral-500/50 p-1 rounded-md"
@@ -82,7 +82,7 @@ const TaskElement = ({
                         ) : (
                             <CheckIcon className="size-5" strokeWidth="1" />
                         )}
-                    </> 
+                    </>
                 )}
             </button>
         </div>

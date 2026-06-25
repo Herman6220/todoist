@@ -37,17 +37,32 @@ const Home = () => {
                                     0%{
                                         box-shadow: inset 0px 0px 0px #000;
                                     }
-                                    40%{
+                                    30%{
                                         box-shadow: inset 0px 0px 1px #555;
                                     }
+                                    60%{
+                                        box-shadow: inset 1px 2px 4px #aaa;
+                                    }
+                                    70%{    
+                                        transform: scale(1);
+                                        box-shadow: inset 1px 2px 4px #aaa;
+                                    }
+                                    90%{
+                                        transform: scale(1.05);
+                                        box-shadow: inset 1px 2px 4px #aaa;
+                                    }
+                                    92%{
+                                        transform: scale(1);
+                                        box-shadow: inset 1px 2px 4px #aaa;
+                                    }
                                     100%{
-                                        box-shadow: inset 1px 2px 4px #aaa, 0px 2px 40px #557;
+                                        box-shadow: inset 1px 2px 4px #aaa, 0px 2px 40px #779;
                                     }
                                 }
                             `}
                         </style>
                         <div
-                            style={{animation: "intoGlass 3s forwards", animationDelay: "1s"}} 
+                            style={{animation: "intoGlass 2s forwards", animationDelay: "1s"}} 
                             className="aspect-square lg:w-28 md:w-14 w-10 lg:rounded-3xl md:rounded-2xl rounded-xl pb-2">
                             <AnimatedLogo />
                         </div>
