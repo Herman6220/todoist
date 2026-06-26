@@ -14,9 +14,10 @@ const tableSchema = new Schema<TableInterface>({
     title: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
     },
 }, { timestamps: true })
+
+tableSchema.index({owner: 1, title: 1}, {unique: true});
 
 export const Table = mongoose.model("Table", tableSchema);

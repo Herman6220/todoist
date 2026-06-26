@@ -25,7 +25,6 @@ const createUserTable = async (req: Request, res: Response) => {
     try {
         const { title } = req.body;
 
-
         if (!title) {
             return res.status(400).json({ message: "Table title required." })
         }
