@@ -63,7 +63,7 @@ const Home = () => {
                         </style>
                         <div
                             style={{animation: "intoGlass 2s forwards", animationDelay: "1s"}} 
-                            className="aspect-square lg:w-28 md:w-14 w-10 lg:rounded-3xl md:rounded-2xl rounded-xl pb-2">
+                            className="aspect-square lg:w-28 md:w-14 w-10 lg:rounded-3xl md:rounded-2xl rounded-lg pb-2">
                             <AnimatedLogo />
                         </div>
                         <h1 className="lg:text-9xl md:text-7xl text-5xl text-transparent bg-clip-text bg-gradient-to-b from-slate-100 via-slate-400 to-slate-500 tracking-tighter">TODOIST</h1>
@@ -96,8 +96,7 @@ const Home = () => {
                     `}
                 </style>
                 <div
-                    style={{ animation: "slideLeftUpAndRotate 1s ease-in-out" }}
-                    className="lg:w-80 w-72 absolute bg-neutral-500/20 rounded-3xl lg:bottom-16 lg:right-12 bottom-[10%] right-[5%] flex flex-col gap-4 [box-shadow:inset_0px_0px_8px_#aaa] backdrop-blur-md rotate-3"
+                    className="[animation:slideLeftUpAndRotate_1s_ease-in-out] lg:w-80 w-72 absolute bg-neutral-500/20 rounded-3xl lg:bottom-16 lg:right-12 bottom-[10%] right-[5%] flex flex-col gap-4 [box-shadow:inset_0px_0px_8px_#aaa] backdrop-blur-md rotate-3"
                 >
                     <div className="flex text-white items-end gap-2 justify-between px-8 pt-8">
                         <div className="flex items-end gap-2">
@@ -143,8 +142,8 @@ const Home = () => {
                 </div>
 
                 <div
-                    style={{ animation: "slideLeftUp 0.5s ease-in-out" }}
-                    className="lg:w-80 w-72 absolute bg-neutral-500/20 rounded-3xl lg:bottom-20 lg:right-20 bottom-[12%] right-[10%] flex flex-col gap-4 [box-shadow:inset_0px_0px_8px_#aaa] backdrop-blur-md overflow-hidden"
+                    // style={{ animation: "slideLeftUp 0.5s ease-in-out" }}
+                    className="[animation:slideLeftUp_0.5s_ease-in-out]  lg:w-80 w-72 absolute bg-neutral-500/20 rounded-3xl lg:bottom-20 lg:right-20 bottom-[12%] flex flex-col gap-4 [box-shadow:inset_0px_0px_8px_#aaa] backdrop-blur-md overflow-hidden"
                 >
                     <div className="flex text-white items-end gap-2 justify-between pt-8 px-8">
                         <div className="flex items-end gap-2">

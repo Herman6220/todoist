@@ -1,7 +1,7 @@
 import { Link } from "react-router"
 import { PanelLeftIcon } from "lucide-react";
 import { Logo } from "./Logo";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 interface TableInterface {
     owner: string;
@@ -37,10 +37,27 @@ export const useSidebar = () => {
 export const Sidebar = ({ tables }: { tables: TableInterface[] }) => {
 
     const {open, setOpen} = useSidebar();
+    const sidebarRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        console.log("Hello");
+        const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+            if(window.innerWidth >= 768) return;
+            if(sidebarRef.current && !sidebarRef.current.contains(e.target as Node)){
+                setOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+    }, [setOpen])
 
     return (
         <div className={`w-full h-full flex lg:justify-center ${open ? "md:max-w-xs" : "md:max-w-24 hidden md:flex"} md:p-4 transition-all duration-300 fixed top-0 left-0 z-50 md:relative backdrop-blur-sm md:backdrop-blur-0`}>
-            <div className={`md:rounded-3xl bg-neutral-800 w-full h-full text-white overflow-hidden p-2 ${open ? "max-w-xs" : "max-w-24"}`}>
+            <div ref={sidebarRef} className={`md:rounded-3xl bg-neutral-800 w-full h-full text-white overflow-hidden p-2 ${open ? "max-w-xs" : "max-w-24"}`}>
                 <div className={`p-2 flex items-end ${open ? "md:justify-between justify-end" : "justify-center"}`}>
                     <div className={`${open ? "md:block hidden" : "hidden"} size-7 mb-1`}>
                         <Link to="/">

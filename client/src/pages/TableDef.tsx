@@ -308,12 +308,12 @@ const TableDef = () => {
                 <div className="flex flex-col gap-2 justify-center items-center w-full h-full">
                     <Navbar />
                     <div className="h-full md:px-10 p-4 text-white flex flex-col gap-10 w-full flex-1 min-h-0">
-                        <div className="flex justify-between">
-                            <div className="flex items-end gap-8">
-                                <h1 className="text-4xl">Today</h1>
+                        <div className="flex items-end justify-between">
+                            <div className="flex flex-col md:flex-row md:items-end">
+                                <h1 className="md:text-4xl text-2xl md:mr-8">Today</h1>
                                 <p>{new Date().toISOString().slice(0, 10)}</p>
                             </div>
-                            <div className="flex flex-col gap-1 items-end justify-end w-full max-w-40">
+                            <div className="flex mb-2 flex-col gap-1 items-end justify-end w-full max-w-40">
                                 <p>{totalCompletedTasks}/{totalTasks}</p>
                                 <div className="w-full h-2 bg-neutral-800 rounded-full relative">
                                     <div
