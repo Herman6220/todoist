@@ -39,7 +39,7 @@ export const Sidebar = ({ tables }: { tables: TableInterface[] }) => {
     const {open, setOpen} = useSidebar();
 
     return (
-        <div className={`w-full h-full flex lg:justify-center ${open ? "md:max-w-xs" : "md:max-w-24 hidden md:flex"} md:p-4 transition-all duration-300 fixed z-50 md:relative backdrop-blur-sm md:backdrop-blur-0`}>
+        <div className={`w-full h-full flex lg:justify-center ${open ? "md:max-w-xs" : "md:max-w-24 hidden md:flex"} md:p-4 transition-all duration-300 fixed top-0 left-0 z-50 md:relative backdrop-blur-sm md:backdrop-blur-0`}>
             <div className={`md:rounded-3xl bg-neutral-800 w-full h-full text-white overflow-hidden p-2 ${open ? "max-w-xs" : "max-w-24"}`}>
                 <div className={`p-2 flex items-end ${open ? "md:justify-between justify-end" : "justify-center"}`}>
                     <div className={`${open ? "md:block hidden" : "hidden"} size-7 mb-1`}>
