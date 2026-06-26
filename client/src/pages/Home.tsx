@@ -1,6 +1,6 @@
 import { Link } from "react-router"
 import { useUserContext } from "../context/AuthContext"
-import {AnimatedLogo} from "../components/Logo";
+import { AnimatedLogo } from "../components/Logo";
 
 const Home = () => {
     const { user } = useUserContext();
@@ -62,13 +62,13 @@ const Home = () => {
                             `}
                         </style>
                         <div
-                            style={{animation: "intoGlass 2s forwards", animationDelay: "1s"}} 
-                            className="aspect-square lg:w-28 md:w-14 w-10 lg:rounded-3xl md:rounded-2xl rounded-lg pb-2">
+                            style={{ animation: "intoGlass 2s forwards", animationDelay: "1s" }}
+                            className="lg:size-28 md:size-14 size-14 lg:rounded-3xl md:rounded-2xl rounded-xl pb-2">
                             <AnimatedLogo />
                         </div>
                         <h1 className="lg:text-9xl md:text-7xl text-5xl text-transparent bg-clip-text bg-gradient-to-b from-slate-100 via-slate-400 to-slate-500 tracking-tighter">TODOIST</h1>
                     </div>
-                    <p className="text-slate-200">Complete your goals on time.</p>
+                    <p className="text-slate-200 md:text-base text-xs md:block hidden">Complete your goals on time.</p>
                 </div>
                 <div className="w-full h-32 bg-blue-300 absolute bottom-20 rounded-[100%] blur-3xl opacity-30"></div>
                 <div className="w-full h-60 absolute -bottom-10">
